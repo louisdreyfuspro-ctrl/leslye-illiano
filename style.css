@@ -210,87 +210,125 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .calib .hero { height: 51.3rem; }
 .calib .contact { min-height: 0; }
 
-/* ==================== FORMULAIRE DE RENDEZ-VOUS ==================== */
-.rdv { background: var(--cream); }
-.rdv .inner { display: flex; align-items: flex-start; gap: 7rem; padding: 6rem 8.5rem 6.4rem; }
+/* ==================================================================
+   PAGE RENDEZ-VOUS (rendez-vous.html) — version sombre
+   ================================================================== */
+.page-rdv {
+  --ink: #ece6df;
+  --ink-soft: #c9c2ba;
+  --rose-clair: #c9a08e;
+  background: var(--bg-dark);
+  color: var(--ink);
+}
 
-.rdv-aside { flex: 0 0 31rem; padding-top: 0.4rem; }
-.rdv-aside .section-label { display: block; font-size: 0.95rem; }
-.rdv-aside .rule-dark { margin: 1.5rem 0 2.6rem; }
-.rdv-aside h2 { font-family: var(--display); font-weight: 400; font-size: 3.1rem; line-height: 3.6rem; color: #1e1a17; }
-.rdv-intro { margin-top: 1.8rem; font-size: 1.5rem; line-height: 2.2rem; color: var(--ink-soft); }
-.rdv-points { list-style: none; margin-top: 2.8rem; }
-.rdv-points li { position: relative; padding-left: 2.2rem; font-size: 1.36rem; line-height: 1.9rem; color: var(--ink-soft); }
-.rdv-points li + li { margin-top: 1.2rem; }
-.rdv-points li::before { content: ""; position: absolute; left: 0; top: 0.9rem; width: 1.2rem; height: 0.1rem; background: var(--rose); }
+/* --- en-tête sur fond sombre --- */
+.page-rdv .header,
+.page-rdv .header.scrolled { background-color: rgba(28,26,23,.88); box-shadow: 0 0.1rem 0 rgba(236,230,223,.07); }
+.page-rdv .logo, .page-rdv .nav, .page-rdv .lang { color: var(--ink); }
+.page-rdv .logo-sub i { background: var(--rose-clair); }
+.page-rdv .nav a::after { background: var(--rose-clair); }
+.page-rdv .nav a:hover { color: var(--rose-clair); }
+.page-rdv .lang .bar { background: rgba(236,230,223,.45); }
 
-/* --- grille du formulaire --- */
+/* --- corps de la page --- */
+.rdv-page { position: relative; min-height: 100vh; padding: 13rem 8.5rem 8rem; overflow: hidden; }
+.rdv-glow { position: absolute; top: -28rem; right: -18rem; width: 72rem; height: 72rem; border-radius: 50%; background: radial-gradient(circle, rgba(139,100,90,.26) 0%, rgba(139,100,90,0) 68%); pointer-events: none; }
+.rdv-page .inner { display: flex; align-items: flex-start; gap: 8rem; }
+
+/* --- colonne de gauche --- */
+.rdv-aside { flex: 0 0 33rem; padding-top: 0.4rem; }
+.rdv-aside .section-label { display: block; font-size: 0.95rem; color: var(--rose-clair); }
+.rdv-aside .rule-light { background: rgba(236,230,223,.3); margin: 1.6rem 0 2.8rem; }
+.rdv-aside h1 { font-family: var(--display); font-weight: 400; font-size: 3.6rem; line-height: 4.1rem; color: #f5f0ea; }
+.rdv-intro { margin-top: 2rem; font-size: 1.5rem; line-height: 2.25rem; color: var(--ink-soft); }
+.rdv-points { list-style: none; margin-top: 3rem; }
+.rdv-points li { position: relative; padding-left: 2.4rem; font-size: 1.36rem; line-height: 1.9rem; color: var(--ink-soft); }
+.rdv-points li + li { margin-top: 1.3rem; }
+.rdv-points li::before { content: ""; position: absolute; left: 0; top: 0.95rem; width: 1.4rem; height: 0.1rem; background: var(--rose-clair); }
+.rdv-back { display: inline-flex; align-items: center; gap: 1.2rem; margin-top: 4rem; font-family: var(--sans); font-size: 0.86rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); transition: color .35s var(--ease); }
+.rdv-back:hover { color: var(--rose-clair); }
+.rdv-back .arrow-back { width: 2.4rem; }
+.rdv-back:hover .arrow-back { transform: translateX(-0.4rem); }
+
+/* --- formulaire --- */
 .rdv-form { flex: 1 1 auto; min-width: 0; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.4rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.6rem; }
 .field { position: relative; margin-bottom: 3.3rem; }
-.field label { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6b625b; transition: color .4s var(--ease); }
-.field label i { font-style: normal; color: var(--rose); }
+.field label { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em; text-transform: uppercase; color: #9d958c; transition: color .4s var(--ease); }
+.field label i { font-style: normal; color: var(--rose-clair); }
 
 .field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
   display: block; width: 100%; margin-top: 1rem; padding: 0 0 0.9rem;
-  font-family: var(--serif); font-size: 1.55rem; line-height: 2rem; color: var(--ink);
-  background: transparent; border: 0; border-bottom: 0.1rem solid rgba(43,37,32,.18);
+  font-family: var(--serif); font-size: 1.55rem; line-height: 2rem; color: #f2ede7;
+  background: transparent; border: 0; border-bottom: 0.1rem solid rgba(236,230,223,.2);
   border-radius: 0; -webkit-appearance: none; appearance: none;
   transition: border-color .45s var(--ease);
 }
 .field textarea { resize: vertical; min-height: 7rem; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: rgba(43,37,32,.3); }
-.field input::placeholder, .field textarea::placeholder { color: #a79d95; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: rgba(236,230,223,.34); }
+.field select option { background: #22201c; color: #f2ede7; }
 
-/* trait rose qui se déploie au focus */
-.field::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem; background: var(--rose); transform: scaleX(0); transform-origin: left center; transition: transform .5s var(--ease); }
+/* trait qui se déploie au focus */
+.field::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem; background: var(--rose-clair); transform: scaleX(0); transform-origin: left center; transition: transform .5s var(--ease); }
 .field:focus-within::after { transform: scaleX(1); }
-.field:focus-within label { color: var(--rose); }
-.field-consent::after, .field-row .field::after { bottom: 0; }
+.field:focus-within label { color: var(--rose-clair); }
 
-/* --- menu déroulant --- */
+/* menu déroulant */
 .select-wrap { position: relative; display: block; }
 .select-wrap select { cursor: pointer; padding-right: 3rem; }
-.select-wrap .caret { position: absolute; right: 0.2rem; bottom: 1.5rem; width: 1.2rem; height: 0.8rem; fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; transition: stroke .4s var(--ease); }
-.select-wrap:focus-within .caret { stroke: var(--rose); }
+.select-wrap .caret { position: absolute; right: 0.2rem; bottom: 1.5rem; width: 1.2rem; height: 0.8rem; fill: none; stroke: #c9c2ba; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; transition: stroke .4s var(--ease); }
+.select-wrap:focus-within .caret { stroke: var(--rose-clair); }
 
-/* --- case à cocher --- */
-.field-consent { display: flex; align-items: flex-start; margin-top: 0.6rem; }
+/* case à cocher */
+.field-consent { display: flex; align-items: flex-start; margin-top: 0.8rem; }
 .field-consent::after { display: none; }
 .field-consent input { position: absolute; opacity: 0; width: 1.6rem; height: 1.6rem; margin: 0; cursor: pointer; }
 .field-consent label { display: flex; align-items: flex-start; gap: 1.2rem; max-width: 46rem; font-family: var(--serif); font-size: 1.25rem; line-height: 1.9rem; letter-spacing: 0; text-transform: none; color: var(--ink-soft); cursor: pointer; }
-.field-consent .box { flex: none; position: relative; width: 1.6rem; height: 1.6rem; margin-top: 0.2rem; border: 0.1rem solid rgba(43,37,32,.3); transition: background-color .35s var(--ease), border-color .35s var(--ease); }
-.field-consent .box svg { position: absolute; inset: 0; margin: auto; width: 1rem; height: 0.85rem; fill: none; stroke: #f6f0ea; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset .4s var(--ease); }
-.field-consent input:checked + label .box { background: var(--rose); border-color: var(--rose); }
+.field-consent .box { flex: none; position: relative; width: 1.6rem; height: 1.6rem; margin-top: 0.2rem; border: 0.1rem solid rgba(236,230,223,.32); transition: background-color .35s var(--ease), border-color .35s var(--ease); }
+.field-consent .box svg { position: absolute; inset: 0; margin: auto; width: 1rem; height: 0.85rem; fill: none; stroke: #22201c; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset .4s var(--ease); }
+.field-consent input:checked + label .box { background: var(--rose-clair); border-color: var(--rose-clair); }
 .field-consent input:checked + label .box svg { stroke-dashoffset: 0; }
-.field-consent input:focus-visible + label .box { box-shadow: 0 0 0 0.3rem rgba(139,100,90,.18); }
+.field-consent input:focus-visible + label .box { box-shadow: 0 0 0 0.3rem rgba(201,160,142,.22); }
 
-/* --- erreurs --- */
-.field-error { position: absolute; left: 0; top: 100%; display: block; margin-top: 0.7rem; font-family: var(--sans); font-size: 0.92rem; letter-spacing: 0.06em; color: #a3564a; opacity: 0; transform: translateY(-0.3rem); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+/* erreurs */
+.field-error { position: absolute; left: 0; top: 100%; display: block; margin-top: 0.7rem; font-family: var(--sans); font-size: 0.92rem; letter-spacing: 0.06em; color: #d9927f; opacity: 0; transform: translateY(-0.3rem); transition: opacity .35s var(--ease), transform .35s var(--ease); }
 .field.invalid .field-error { opacity: 1; transform: none; }
-.field.invalid input, .field.invalid textarea, .field.invalid select { border-bottom-color: #a3564a; }
-.field.invalid .box { border-color: #a3564a; }
+.field.invalid input, .field.invalid textarea, .field.invalid select { border-bottom-color: #d9927f; }
+.field.invalid .box { border-color: #d9927f; }
 
-/* --- pot de miel anti-spam --- */
+/* pot de miel anti-spam */
 .field-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
-/* --- envoi --- */
-.rdv-actions { display: flex; align-items: center; gap: 2.4rem; margin-top: 3.4rem; flex-wrap: wrap; }
-.rdv-form .btn { border: 0; cursor: pointer; font-family: var(--sans); min-width: 22rem; height: 3.8rem; }
-.rdv-form .btn[disabled] { opacity: .55; cursor: default; }
+/* envoi */
+.rdv-actions { display: flex; align-items: center; gap: 2.4rem; margin-top: 3.6rem; flex-wrap: wrap; }
+.rdv-form .btn { border: 0; cursor: pointer; font-family: var(--sans); min-width: 22rem; height: 3.9rem; background: var(--rose); color: #f7f2ec; }
+.rdv-form .btn:hover { background: var(--rose-clair); color: #22201c; }
+.rdv-form .btn[disabled] { opacity: .5; cursor: default; }
 .form-status { font-size: 1.28rem; line-height: 1.8rem; color: var(--ink-soft); opacity: 0; transform: translateY(0.4rem); transition: opacity .45s var(--ease), transform .45s var(--ease); }
 .form-status.show { opacity: 1; transform: none; }
-.form-status.error { color: #a3564a; }
+.form-status.error { color: #d9927f; }
+
+/* pied de page sombre */
+.page-rdv .footer { background: #1b1916; }
+.page-rdv .copy, .page-rdv .meta { color: #9d958c; }
+.page-rdv .meta .sep { color: #5f584f; }
+.page-rdv .linkedin svg { fill: #9d958c; }
+.page-rdv .linkedin svg .in { fill: #1b1916; }
+.page-rdv .lotus { opacity: .75; }
 
 @media (max-width: 1100px) {
-  .rdv .inner { gap: 4.4rem; padding: 5.4rem 5rem 5.6rem; }
-  .rdv-aside { flex-basis: 27rem; }
+  .rdv-page { padding: 11rem 5rem 6rem; }
+  .rdv-page .inner { gap: 4.6rem; }
+  .rdv-aside { flex-basis: 28rem; }
 }
 @media (max-width: 760px) {
-  .rdv .inner { flex-direction: column; gap: 3.6rem; padding: 4.4rem 2.4rem 4.8rem; }
+  .rdv-page { padding: 9rem 2.4rem 5rem; }
+  .rdv-page .inner { flex-direction: column; gap: 4rem; }
   .rdv-aside { flex: none; width: 100%; }
-  .rdv-aside h2 { font-size: 2.9rem; line-height: 3.4rem; }
-  .rdv-aside h2 br, .rdv-intro br { display: none; }
+  .rdv-aside h1 { font-size: 3rem; line-height: 3.5rem; }
+  .rdv-aside h1 br, .rdv-intro br { display: none; }
+  .rdv-back { margin-top: 3rem; }
+  .rdv-glow { top: -30rem; right: -30rem; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .rdv-form .btn { width: 100%; min-width: 0; height: 4.4rem; }
   .rdv-actions { gap: 1.6rem; }

@@ -3,6 +3,7 @@
   /* mode calibrage (dev) : ?calib -> hauteurs de la maquette, tout visible */
   if (/[?&]calib/.test(location.search)) document.documentElement.classList.add('calib');
   const header = document.getElementById('header');
+  if (!header) return;
   const navLinks = Array.from(document.querySelectorAll('.nav a'));
   const sections = Array.from(document.querySelectorAll('section[id]'));
   const reveals = Array.from(document.querySelectorAll('.reveal, .photo-reveal'));
@@ -12,16 +13,19 @@
   /* --- header : fond dès qu'on quitte le haut, et état "sombre" sur la section conviction --- */
   function onScroll() {
     const y = window.scrollY || 0;
-    header.classList.toggle('scrolled', y > 40);
+    if (!document.body.classList.contains('page-rdv')) {
+      header.classList.toggle('scrolled', y > 40);
+    }
 
     /* lien actif */
-    let current = sections[0];
-    for (const s of sections) {
-      if (s.getBoundingClientRect().top <= window.innerHeight * 0.4) current = s;
+    /* lien actif : seulement sur une page qui contient des sections ancrées */
+    if (sections.length) {
+      let current = sections[0];
+      for (const s of sections) {
+        if (s.getBoundingClientRect().top <= window.innerHeight * 0.4) current = s;
+      }
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
     }
-    /* le formulaire prolonge la section Contact */
-    const id = current.id === 'rendez-vous' ? 'contact' : current.id;
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
 
     /* parallaxe */
     if (!reduce) {
