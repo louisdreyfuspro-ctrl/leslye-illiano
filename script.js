@@ -79,7 +79,7 @@
   const form = document.querySelector('.rdv-form');
   if (!form) return;
 
-  const DESTINATAIRE = 'contact@leslyeilliano.com';
+  const DESTINATAIRE = 'lilliano.coaching@gmail.com';
   const status = form.querySelector('.form-status');
   const bouton = form.querySelector('button[type="submit"]');
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -136,7 +136,7 @@
       'Sujet : ' + donnees.sujet,
       '',
       donnees.message
-    ].filter(Boolean).join('\n');
+    ].filter(l => l !== null).join('\n');
     window.location.href = 'mailto:' + DESTINATAIRE
       + '?subject=' + encodeURIComponent(sujet)
       + '&body=' + encodeURIComponent(corps);
