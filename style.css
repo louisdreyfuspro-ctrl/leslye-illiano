@@ -123,15 +123,21 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .offres .section-label { font-size: 1.19rem; }
 .cols { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 3.4rem; margin-top: 2.4rem; }
 .col { position: relative; padding: 1.2rem 0 0; }
-.col + .col::before { content: ""; position: absolute; left: -1.7rem; top: 1.2rem; bottom: 0.2rem; width: 0.1rem; background: rgba(60,40,30,.10); }
+.col + .col::before { content: ""; position: absolute; left: -1.7rem; top: 1.2rem; bottom: 0.2rem; width: 0.1rem; background: rgba(60,40,30,.10); transition: opacity .5s var(--ease); }
+/* fond animé au survol : un calque qui déborde légèrement de la carte */
+.col::after { content: ""; position: absolute; inset: -0.6rem -1.4rem -1.4rem -1.4rem; background: var(--rose); border-radius: 0.2rem; opacity: 0; transform: scaleY(.92); transform-origin: center top; transition: opacity .55s var(--ease), transform .55s var(--ease); z-index: 0; pointer-events: none; }
+.col > * { position: relative; z-index: 1; transition: color .5s var(--ease), background-color .5s var(--ease); }
+.col:hover::after, .col:focus-within::after { opacity: 1; transform: scaleY(1); }
+.col:hover + .col::before, .col:hover::before { opacity: 0; }
+.col:hover .num, .col:hover h3, .col:hover p, .col:hover .more { color: #f6f0ea; }
+.col:hover .rule-num { background: rgba(246,240,234,.7); }
 .num { display: block; font-family: var(--display); font-weight: 400; font-size: 2.6rem; line-height: 2.6rem; letter-spacing: 0.04em; color: var(--rose-text); font-variant-numeric: lining-nums; }
 .col .rule-num { margin: 0.9rem 0 1.9rem; }
 .col h3 { font-family: var(--sans); font-weight: 400; font-size: 1.2rem; letter-spacing: 0.22em; line-height: 1.9rem; color: var(--ink); }
 .col p { margin-top: 1.3rem; font-size: 1.48rem; line-height: 1.7rem; color: var(--ink-soft); }
 .col .more { display: inline-block; margin-top: 1.9rem; color: var(--ink); line-height: 0; }
 .col .more .arrow { width: 2.5rem; }
-.col .more:hover { color: var(--rose); }
-.col .more:hover .arrow { transform: translateX(0.4rem); }
+.col:hover .more .arrow { transform: translateX(0.6rem); }
 
 /* ==================== CONVICTION ==================== */
 .conviction { background: var(--bg-dark); color: var(--cream); }
@@ -190,6 +196,7 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
   .offres .inner { padding: 4rem 2.4rem; }
   .cols { grid-template-columns: 1fr; row-gap: 3rem; }
   .col + .col::before { display: none; }
+  .col::after { inset: -1.2rem -1.6rem -1.6rem -1.6rem; }
   .conviction-photo { position: relative; left: 0; height: 26rem; }
   .conviction-photo::after { display: none; }
   .conviction .inner { padding: 3.2rem 2.4rem 4rem; }
