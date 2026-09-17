@@ -174,7 +174,7 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
   .logo { left: 2rem; top: 1.4rem; }
   .nav, .lang { display: none; }
   .hero { height: auto; padding: 0; display: flex; flex-direction: column-reverse; align-items: stretch; }
-  .hero-bg { position: relative; inset: auto; height: 100vw; background-size: cover; background-position: 55% 30%; }
+  .hero-bg { position: relative; inset: auto; height: 105vw; background-size: auto 150%; background-position: 62% 100%; }
   .hero .inner { position: relative; height: auto; padding: 8rem 2.4rem 3.6rem; }
   .hero-left { position: relative; left: 0; top: 0; width: auto; }
   .hero-tags { white-space: normal; }
