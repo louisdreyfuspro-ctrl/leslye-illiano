@@ -95,7 +95,6 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .hero-title em { font-style: italic; font-weight: 400; }
 .hero-left .rule-rose { margin-top: 2.6rem; }
 .hero-text { margin-top: 1.7rem; font-size: 1.68rem; line-height: 2.1rem; color: var(--ink-soft); max-width: 38rem; }
-.hero-left .btn { margin-top: 3.4rem; min-width: 27.5rem; }
 
 .vline { position: absolute; width: 0.1rem; background: rgba(255,255,255,.75); }
 .vline-2 { left: 91.5rem; top: 8.5rem; height: 15.8rem; }
@@ -129,15 +128,12 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .col > * { position: relative; z-index: 1; transition: color .5s var(--ease), background-color .5s var(--ease); }
 .col:hover::after, .col:focus-within::after { opacity: 1; transform: scaleY(1); }
 .col:hover + .col::before, .col:hover::before { opacity: 0; }
-.col:hover .num, .col:hover h3, .col:hover p, .col:hover .more { color: #f6f0ea; }
+.col:hover .num, .col:hover h3, .col:hover p { color: #f6f0ea; }
 .col:hover .rule-num { background: rgba(246,240,234,.7); }
 .num { display: block; font-family: var(--display); font-weight: 400; font-size: 2.6rem; line-height: 2.6rem; letter-spacing: 0.04em; color: var(--rose-text); font-variant-numeric: lining-nums; }
 .col .rule-num { margin: 0.9rem 0 1.9rem; }
 .col h3 { font-family: var(--sans); font-weight: 400; font-size: 1.2rem; letter-spacing: 0.22em; line-height: 1.9rem; color: var(--ink); }
-.col p { margin-top: 1.3rem; font-size: 1.48rem; line-height: 1.7rem; color: var(--ink-soft); }
-.col .more { display: inline-block; margin-top: 1.9rem; color: var(--ink); line-height: 0; }
-.col .more .arrow { width: 2.5rem; }
-.col:hover .more .arrow { transform: translateX(0.6rem); }
+.col p { margin-top: 1.3rem; padding-bottom: 0.4rem; font-size: 1.48rem; line-height: 1.7rem; color: var(--ink-soft); }
 
 /* ==================== CONVICTION ==================== */
 .conviction { background: var(--bg-dark); color: var(--cream); }
@@ -187,7 +183,6 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
   .hero-title { font-size: 4.6rem; line-height: 4.4rem; }
   .hero-text { font-size: 1.6rem; line-height: 2.2rem; }
   .hero-text br, .hauteur-body p br, .conviction .text br, .contact-text br, .col p br { display: none; }
-  .hero-left .btn { min-width: 0; height: 4rem; }
   .vline, .hero-right, .signature { display: none; }
   .hauteur-photo { position: relative; width: 100%; height: 26rem; }
   .hauteur .inner { flex-direction: column; padding: 3.2rem 2.4rem 4rem; }
