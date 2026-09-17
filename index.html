@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leslye Illiano – Executive Coaching</title>
 <meta name="description" content="Un accompagnement sur-mesure pour les dirigeants qui souhaitent conjuguer performance et alignement. Réussir. Évoluer. Rester soi.">
-<link rel="stylesheet" href="fonts.css?v=4">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="fonts.css?v=6">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -123,9 +123,92 @@
       <span class="rule rule-dark reveal line" style="--d:.3s"></span>
     </div>
     <p class="contact-text reveal" style="--d:.35s">Chaque accompagnement débute par une rencontre.<br> Un temps pour comprendre votre situation,<br> vos enjeux et vérifier ensemble si nous souhaitons travailler ensemble.</p>
-    <a href="mailto:contact@leslyeilliano.com" class="btn btn-contact reveal" style="--d:.55s">PRENDRE RENDEZ-VOUS
+    <a href="#rendez-vous" class="btn btn-contact reveal" style="--d:.55s">PRENDRE RENDEZ-VOUS
       <svg class="arrow" viewBox="0 0 26 8"><path d="M0 4h24.5M21 .8 24.6 4 21 7.2"/></svg>
     </a>
+  </div>
+</section>
+
+<!-- ===== FORMULAIRE ===== -->
+<section class="rdv" id="rendez-vous">
+  <div class="inner">
+
+    <aside class="rdv-aside">
+      <p class="section-label reveal" style="--d:.1s">PRENDRE RENDEZ-VOUS</p>
+      <span class="rule rule-dark reveal line" style="--d:.25s"></span>
+      <h2 class="reveal" style="--d:.35s">Commençons par<br> un premier échange.</h2>
+      <p class="rdv-intro reveal" style="--d:.45s">Trente minutes pour comprendre votre situation et vérifier ensemble si ce travail a du sens. Sans engagement.</p>
+      <ul class="rdv-points reveal" style="--d:.55s">
+        <li>Échange strictement confidentiel</li>
+        <li>Réponse sous 48 heures ouvrées</li>
+        <li>En visio, ou en présentiel à Lyon et Paris</li>
+      </ul>
+    </aside>
+
+    <form class="rdv-form reveal" style="--d:.4s" novalidate>
+      <div class="field-row">
+        <p class="field">
+          <label for="f-nom">Prénom et nom <i>*</i></label>
+          <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+          <span class="field-error" aria-live="polite"></span>
+        </p>
+        <p class="field">
+          <label for="f-email">Adresse e-mail <i>*</i></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+          <span class="field-error" aria-live="polite"></span>
+        </p>
+      </div>
+
+      <div class="field-row">
+        <p class="field">
+          <label for="f-tel">Téléphone</label>
+          <input id="f-tel" name="telephone" type="tel" autocomplete="tel">
+          <span class="field-error" aria-live="polite"></span>
+        </p>
+        <p class="field">
+          <label for="f-fonction">Fonction et entreprise</label>
+          <input id="f-fonction" name="fonction" type="text" autocomplete="organization-title">
+          <span class="field-error" aria-live="polite"></span>
+        </p>
+      </div>
+
+      <p class="field">
+        <label for="f-sujet">Ce qui vous amène</label>
+        <span class="select-wrap">
+          <select id="f-sujet" name="sujet">
+            <option value="Leadership &amp; posture">Leadership &amp; posture</option>
+            <option value="Transitions &amp; évolution">Transitions &amp; évolution</option>
+            <option value="Décision &amp; complexité">Décision &amp; complexité</option>
+            <option value="Relations &amp; management">Relations &amp; management</option>
+            <option value="Autre sujet">Autre sujet</option>
+          </select>
+          <svg class="caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5"/></svg>
+        </span>
+        <span class="field-error" aria-live="polite"></span>
+      </p>
+
+      <p class="field">
+        <label for="f-message">Votre message <i>*</i></label>
+        <textarea id="f-message" name="message" rows="4" required></textarea>
+        <span class="field-error" aria-live="polite"></span>
+      </p>
+
+      <p class="field field-consent">
+        <input id="f-consent" name="consent" type="checkbox" required>
+        <label for="f-consent"><span class="box"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5.2 4.3 8.6 11 1.6"/></svg></span><span class="txt">J’accepte que ces informations soient utilisées pour me recontacter. Elles restent strictement confidentielles. <i>*</i></span></label>
+        <span class="field-error" aria-live="polite"></span>
+      </p>
+
+      <p class="field-hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="societe_web" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="rdv-actions">
+        <button type="submit" class="btn">ENVOYER MA DEMANDE
+          <svg class="arrow" viewBox="0 0 26 8"><path d="M0 4h24.5M21 .8 24.6 4 21 7.2"/></svg>
+        </button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
   </div>
 </section>
 
@@ -143,6 +226,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>

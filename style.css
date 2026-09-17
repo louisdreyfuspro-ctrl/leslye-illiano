@@ -22,14 +22,14 @@
   --section-h: min(100vh, 62vw);   /* hauteur "expérience" d'une section, sans vide excessif */
 }
 
-html { font-size: calc(100vw / 102.4); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html { font-size: calc(100vw / 102.4); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--serif); color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
 section, footer { position: relative; width: 100%; overflow: hidden; }
-section { min-height: var(--section-h); display: flex; align-items: center; scroll-snap-align: start; }
+section { min-height: var(--section-h); display: flex; align-items: center; scroll-margin-top: 6rem; }
 .inner { position: relative; width: 100%; }
 
 /* ==================== apparition au scroll ==================== */
@@ -174,7 +174,7 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 
 /* ==================== MOBILE (< 760 px) ==================== */
 @media (max-width: 760px) {
-  html { font-size: 10px; scroll-snap-type: none; }
+  html { font-size: 10px; }
   section { min-height: 0; display: block; }
   .header { height: 5.6rem; background-color: rgba(243,238,233,.94); }
   .logo { left: 2rem; top: 1.4rem; }
@@ -214,3 +214,89 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .calib section { min-height: 0; }
 .calib .hero { height: 51.3rem; }
 .calib .contact { min-height: 0; }
+
+/* ==================== FORMULAIRE DE RENDEZ-VOUS ==================== */
+.rdv { background: var(--cream); }
+.rdv .inner { display: flex; align-items: flex-start; gap: 7rem; padding: 6rem 8.5rem 6.4rem; }
+
+.rdv-aside { flex: 0 0 31rem; padding-top: 0.4rem; }
+.rdv-aside .section-label { display: block; font-size: 0.95rem; }
+.rdv-aside .rule-dark { margin: 1.5rem 0 2.6rem; }
+.rdv-aside h2 { font-family: var(--display); font-weight: 400; font-size: 3.1rem; line-height: 3.6rem; color: #1e1a17; }
+.rdv-intro { margin-top: 1.8rem; font-size: 1.5rem; line-height: 2.2rem; color: var(--ink-soft); }
+.rdv-points { list-style: none; margin-top: 2.8rem; }
+.rdv-points li { position: relative; padding-left: 2.2rem; font-size: 1.36rem; line-height: 1.9rem; color: var(--ink-soft); }
+.rdv-points li + li { margin-top: 1.2rem; }
+.rdv-points li::before { content: ""; position: absolute; left: 0; top: 0.9rem; width: 1.2rem; height: 0.1rem; background: var(--rose); }
+
+/* --- grille du formulaire --- */
+.rdv-form { flex: 1 1 auto; min-width: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.4rem; }
+.field { position: relative; margin-bottom: 3.3rem; }
+.field label { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6b625b; transition: color .4s var(--ease); }
+.field label i { font-style: normal; color: var(--rose); }
+
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
+  display: block; width: 100%; margin-top: 1rem; padding: 0 0 0.9rem;
+  font-family: var(--serif); font-size: 1.55rem; line-height: 2rem; color: var(--ink);
+  background: transparent; border: 0; border-bottom: 0.1rem solid rgba(43,37,32,.18);
+  border-radius: 0; -webkit-appearance: none; appearance: none;
+  transition: border-color .45s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 7rem; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: rgba(43,37,32,.3); }
+.field input::placeholder, .field textarea::placeholder { color: #a79d95; }
+
+/* trait rose qui se déploie au focus */
+.field::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem; background: var(--rose); transform: scaleX(0); transform-origin: left center; transition: transform .5s var(--ease); }
+.field:focus-within::after { transform: scaleX(1); }
+.field:focus-within label { color: var(--rose); }
+.field-consent::after, .field-row .field::after { bottom: 0; }
+
+/* --- menu déroulant --- */
+.select-wrap { position: relative; display: block; }
+.select-wrap select { cursor: pointer; padding-right: 3rem; }
+.select-wrap .caret { position: absolute; right: 0.2rem; bottom: 1.5rem; width: 1.2rem; height: 0.8rem; fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; transition: stroke .4s var(--ease); }
+.select-wrap:focus-within .caret { stroke: var(--rose); }
+
+/* --- case à cocher --- */
+.field-consent { display: flex; align-items: flex-start; margin-top: 0.6rem; }
+.field-consent::after { display: none; }
+.field-consent input { position: absolute; opacity: 0; width: 1.6rem; height: 1.6rem; margin: 0; cursor: pointer; }
+.field-consent label { display: flex; align-items: flex-start; gap: 1.2rem; max-width: 46rem; font-family: var(--serif); font-size: 1.25rem; line-height: 1.9rem; letter-spacing: 0; text-transform: none; color: var(--ink-soft); cursor: pointer; }
+.field-consent .box { flex: none; position: relative; width: 1.6rem; height: 1.6rem; margin-top: 0.2rem; border: 0.1rem solid rgba(43,37,32,.3); transition: background-color .35s var(--ease), border-color .35s var(--ease); }
+.field-consent .box svg { position: absolute; inset: 0; margin: auto; width: 1rem; height: 0.85rem; fill: none; stroke: #f6f0ea; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset .4s var(--ease); }
+.field-consent input:checked + label .box { background: var(--rose); border-color: var(--rose); }
+.field-consent input:checked + label .box svg { stroke-dashoffset: 0; }
+.field-consent input:focus-visible + label .box { box-shadow: 0 0 0 0.3rem rgba(139,100,90,.18); }
+
+/* --- erreurs --- */
+.field-error { position: absolute; left: 0; top: 100%; display: block; margin-top: 0.7rem; font-family: var(--sans); font-size: 0.92rem; letter-spacing: 0.06em; color: #a3564a; opacity: 0; transform: translateY(-0.3rem); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+.field.invalid .field-error { opacity: 1; transform: none; }
+.field.invalid input, .field.invalid textarea, .field.invalid select { border-bottom-color: #a3564a; }
+.field.invalid .box { border-color: #a3564a; }
+
+/* --- pot de miel anti-spam --- */
+.field-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* --- envoi --- */
+.rdv-actions { display: flex; align-items: center; gap: 2.4rem; margin-top: 3.4rem; flex-wrap: wrap; }
+.rdv-form .btn { border: 0; cursor: pointer; font-family: var(--sans); min-width: 22rem; height: 3.8rem; }
+.rdv-form .btn[disabled] { opacity: .55; cursor: default; }
+.form-status { font-size: 1.28rem; line-height: 1.8rem; color: var(--ink-soft); opacity: 0; transform: translateY(0.4rem); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.form-status.show { opacity: 1; transform: none; }
+.form-status.error { color: #a3564a; }
+
+@media (max-width: 1100px) {
+  .rdv .inner { gap: 4.4rem; padding: 5.4rem 5rem 5.6rem; }
+  .rdv-aside { flex-basis: 27rem; }
+}
+@media (max-width: 760px) {
+  .rdv .inner { flex-direction: column; gap: 3.6rem; padding: 4.4rem 2.4rem 4.8rem; }
+  .rdv-aside { flex: none; width: 100%; }
+  .rdv-aside h2 { font-size: 2.9rem; line-height: 3.4rem; }
+  .rdv-aside h2 br, .rdv-intro br { display: none; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .rdv-form .btn { width: 100%; min-width: 0; height: 4.4rem; }
+  .rdv-actions { gap: 1.6rem; }
+}
