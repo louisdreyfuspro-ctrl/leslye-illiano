@@ -360,3 +360,22 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 @media (max-width: 760px) {
   .rdv-linkedin { width: 100%; margin-top: 2.8rem; }
 }
+
+/* --- LinkedIn dans la première section (accueil) --- */
+.hero-linkedin {
+  display: inline-flex; align-items: center; gap: 1.4rem; margin-top: 3.6rem;
+  font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink); white-space: nowrap;
+  transition: color .4s var(--ease);
+}
+.hero-linkedin .li-badge { flex: none; display: inline-flex; }
+.hero-linkedin .li-badge svg { width: 2.1rem; height: 2.1rem; fill: var(--rose); transition: fill .4s var(--ease); }
+.hero-linkedin .li-badge svg .in { fill: #efeae6; }
+.hero-linkedin .arrow { width: 2.2rem; }
+.hero-linkedin:hover { color: var(--rose); }
+.hero-linkedin:hover .li-badge svg { fill: #7a564d; }
+.hero-linkedin:hover .arrow { transform: translateX(0.4rem); }
+
+@media (max-width: 760px) {
+  .hero-linkedin { margin-top: 2.8rem; white-space: normal; font-size: 0.9rem; }
+}

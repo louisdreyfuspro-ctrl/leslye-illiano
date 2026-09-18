@@ -54,6 +54,20 @@
       });
     }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
     reveals.forEach(el => io.observe(el));
+
+    /* Filet de sécurité : le chargement des polices déplace la mise en page.
+       Un élément déjà visible que l'observateur a manqué est révélé ici. */
+    const rattrapage = () => {
+      const vh = window.innerHeight;
+      reveals.forEach(el => {
+        if (el.classList.contains('in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) { el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    window.addEventListener('load', rattrapage);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(rattrapage);
+    setTimeout(rattrapage, 1200);
   } else {
     reveals.forEach(el => el.classList.add('in'));
   }
