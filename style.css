@@ -187,7 +187,12 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
   .hero-title { font-size: 4.6rem; line-height: 4.4rem; }
   .hero-text { font-size: 1.6rem; line-height: 2.2rem; }
   .hero-text br, .hauteur-body p br, .conviction .text br, .contact-text br, .col p br { display: none; }
-  .vline, .hero-right, .signature { display: none; }
+  .vline, .hero-right { display: none; }
+  /* signature posée en bas du portrait */
+  .hero .inner { position: static; }
+  .signature { display: block; position: absolute; left: auto; right: 2.6rem; top: auto; bottom: 2.6rem; width: 11.5rem; text-align: right; z-index: 2; }
+  .signature img { width: 11.5rem; margin-left: auto; }
+  .signature span { margin-top: 0.3rem; font-size: 0.64rem; letter-spacing: 0.24em; }
   .hauteur-photo { position: relative; width: 100%; height: 26rem; }
   .hauteur .inner { flex-direction: column; padding: 3.2rem 2.4rem 4rem; }
   .hauteur-body { max-width: none; }
