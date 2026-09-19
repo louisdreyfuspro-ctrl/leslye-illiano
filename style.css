@@ -367,7 +367,7 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 
 /* --- LinkedIn dans la première section (accueil) --- */
 .hero-linkedin {
-  display: inline-flex; align-items: center; gap: 1.4rem; margin-top: 3.6rem;
+  display: inline-flex; align-items: center; gap: 1.4rem;
   font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--ink); white-space: nowrap;
   transition: color .4s var(--ease);
@@ -381,7 +381,8 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .hero-linkedin:hover .arrow { transform: translateX(0.4rem); }
 
 @media (max-width: 760px) {
-  .hero-linkedin { margin-top: 2.8rem; white-space: normal; font-size: 0.9rem; }
+  .hero-actions { margin-top: 2.6rem; gap: 1.6rem 2.4rem; }
+  .hero-linkedin { white-space: normal; font-size: 0.9rem; }
 }
 
 /* ==================== À PROPOS ==================== */
@@ -429,3 +430,24 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
   .apropos-chute { margin-top: 3.4rem; padding-left: 2rem; }
   .apropos-chute p { font-size: 1.85rem; line-height: 2.75rem; }
 }
+
+/* --- petit rappel « À propos » dans la première section --- */
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 1.4rem;
+  font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink); white-space: nowrap;
+  transition: color .4s var(--ease);
+}
+.hero-cta span { position: relative; padding-bottom: 0.5rem; }
+.hero-cta span::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem;
+  background: var(--rose); transform-origin: left center;
+  transition: transform .45s var(--ease);
+}
+.hero-cta .arrow { width: 2.2rem; }
+.hero-cta:hover { color: var(--rose); }
+.hero-cta:hover span::after { transform: scaleX(1.12); }
+.hero-cta:hover .arrow { transform: translateX(0.4rem); }
+
+/* rangée des deux rappels sous l'accroche du hero */
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.8rem 3.4rem; margin-top: 3.4rem; }
