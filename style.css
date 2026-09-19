@@ -386,42 +386,46 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 
 /* ==================== À PROPOS ==================== */
 .apropos { background: #f6f2ee; }
-.apropos .inner { padding: 7rem 8.5rem 7.4rem; }
+.apropos .inner {
+  display: grid; grid-template-columns: 34rem 1fr; gap: 0 9rem;
+  padding: 7rem 8.5rem 7.4rem; max-width: 108rem;
+}
+.apropos-tete { grid-column: 1; }
 .apropos .section-label { display: block; font-size: 1.1rem; }
 .apropos .rule-dark { margin: 1.6rem 0 0; }
-
 .apropos-lead {
-  margin: 4.2rem 0 0;
+  margin-top: 3.4rem;
   font-family: var(--display); font-weight: 400;
-  font-size: 4.2rem; line-height: 5rem; letter-spacing: 0;
-  color: #1e1a17; max-width: 62rem;
+  font-size: 3.5rem; line-height: 4.2rem; color: #1e1a17;
 }
 .apropos-lead em { font-style: italic; color: var(--rose-text); }
 
-.apropos-colonnes {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0 7rem;
-  margin-top: 5.2rem; max-width: 84rem;
-}
-.apropos-colonnes p { font-size: 1.5rem; line-height: 2.35rem; color: var(--ink-soft); }
-.apropos-colonnes p + p { margin-top: 2rem; }
+.apropos-texte { grid-column: 2; max-width: 52rem; padding-top: 0.6rem; }
+.apropos-texte p { font-size: 1.5rem; line-height: 2.35rem; color: var(--ink-soft); }
+.apropos-texte p + p { margin-top: 2.1rem; }
+.apropos-texte b { font-weight: 400; color: var(--ink); }
 
-.apropos-chute { margin-top: 5.4rem; padding-left: 3rem; border-left: 0.1rem solid var(--rose); max-width: 62rem; }
-.apropos-chute p { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 2.1rem; line-height: 3rem; color: #1e1a17; }
+.apropos-chute {
+  grid-column: 2; margin-top: 3.6rem; padding-left: 3rem;
+  border-left: 0.1rem solid var(--rose); max-width: 52rem;
+}
+.apropos-chute p {
+  font-family: var(--display); font-style: italic; font-weight: 400;
+  font-size: 2rem; line-height: 2.9rem; color: #1e1a17;
+}
 
 @media (max-width: 1100px) {
-  .apropos .inner { padding: 5.6rem 5rem 6rem; }
-  .apropos-lead { font-size: 3.6rem; line-height: 4.3rem; }
-  .apropos-colonnes { grid-template-columns: 1fr; gap: 0; }
-  .apropos-colonnes > div + div { margin-top: 2rem; }
-  .apropos-colonnes > div + div p:first-child { margin-top: 0; }
-  .apropos-colonnes > div > p + p { margin-top: 2rem; }
+  .apropos .inner { grid-template-columns: 1fr; gap: 0; padding: 5.6rem 5rem 6rem; }
+  .apropos-tete, .apropos-texte, .apropos-chute { grid-column: 1; max-width: none; }
+  .apropos-lead { font-size: 3.2rem; line-height: 3.9rem; }
+  .apropos-texte { margin-top: 4rem; padding-top: 0; }
 }
 @media (max-width: 760px) {
   .apropos .inner { padding: 4.4rem 2.4rem 5rem; }
-  .apropos-lead { margin-top: 3rem; font-size: 3rem; line-height: 3.7rem; }
+  .apropos-lead { margin-top: 2.8rem; font-size: 2.9rem; line-height: 3.6rem; }
   .apropos-lead br { display: none; }
-  .apropos-colonnes { margin-top: 3.4rem; }
-  .apropos-colonnes p { font-size: 1.5rem; line-height: 2.3rem; }
-  .apropos-chute { margin-top: 3.6rem; padding-left: 2rem; }
-  .apropos-chute p { font-size: 1.9rem; line-height: 2.8rem; }
+  .apropos-texte { margin-top: 3.2rem; }
+  .apropos-texte p { font-size: 1.5rem; line-height: 2.3rem; }
+  .apropos-chute { margin-top: 3.4rem; padding-left: 2rem; }
+  .apropos-chute p { font-size: 1.85rem; line-height: 2.75rem; }
 }
