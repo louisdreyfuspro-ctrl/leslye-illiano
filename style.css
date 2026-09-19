@@ -374,7 +374,7 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 .hero-linkedin {
   display: inline-flex; align-items: center; gap: 1.4rem;
   font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--ink); white-space: nowrap;
+  text-transform: uppercase; color: #514a44; white-space: nowrap;
   transition: color .4s var(--ease);
 }
 .hero-linkedin .li-badge { flex: none; display: inline-flex; }
@@ -439,13 +439,13 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 /* --- petit rappel « À propos » dans la première section --- */
 .hero-cta {
   display: inline-flex; align-items: center; gap: 1.4rem;
-  font-family: var(--sans); font-weight: 400; font-size: 0.86rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--ink); white-space: nowrap;
+  font-family: var(--sans); font-weight: 500; font-size: 0.98rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #1e1a17; white-space: nowrap;
   transition: color .4s var(--ease);
 }
-.hero-cta span { position: relative; padding-bottom: 0.5rem; }
+.hero-cta span { position: relative; padding-bottom: 0.6rem; }
 .hero-cta span::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem;
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.22rem;
   background: var(--rose); transform-origin: left center;
   transition: transform .45s var(--ease);
 }
