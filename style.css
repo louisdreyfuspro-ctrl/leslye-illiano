@@ -456,3 +456,22 @@ section { min-height: var(--section-h); display: flex; align-items: center; scro
 
 /* rangée des deux rappels sous l'accroche du hero */
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.8rem 3.4rem; margin-top: 3.4rem; }
+
+/* ==================== Paragraphes justifiés ====================
+   Texte aligné à gauche et à droite. La césure automatique en français
+   évite les blancs trop larges entre les mots. Les citations en italique
+   et les colonnes étroites restent alignées à gauche. */
+.hero-text,
+.hauteur-body p,
+.conviction .text,
+.contact-text,
+.apropos-texte p,
+.rdv-intro {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+@media (max-width: 760px) {
+  .col p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+}
